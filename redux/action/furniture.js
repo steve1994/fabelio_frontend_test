@@ -29,6 +29,14 @@ export const setFurnitureListBasedOnDeliver = (deliverTimeOption,furnitureList) 
     furnitureList
 })
 
+export const setFurnitureListBasedOnAllFilter = (keyword,furnitureStyleOption,deliverTimeOption,furnitureList) => ({
+    type : type.SET_LIST_FURNITURE_BASED_ALL_FILTER,
+    keyword,
+    furnitureStyleOption,
+    deliverTimeOption,
+    furnitureList
+})
+
 export const loadFurnitureList = () => {
     return dispatch => {
         return fetchDataFurniture()
@@ -83,5 +91,17 @@ export const loadFurnitureListBasedOnDeliver = (deliverTimeOption) => {
                 console.log(error);
             })
         }
+    }
+}
+
+export const loadFurnitureListBasedAllFilter = (keyword, furnitureStyleOption, deliverTimeOption) => {
+    return dispatch => {
+        return fetchDataFurniture()
+        .then(response => {
+            dispatch(setFurnitureListBasedOnAllFilter(keyword, furnitureStyleOption, deliverTimeOption, response.products));
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 }

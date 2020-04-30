@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {connect} from 'react-redux';
 import '../../pages/css/header.css';
 import $ from 'jquery';
-import {loadFurnitureListBasedOnType,
-        loadFurnitureListBasedOnKeyword,
-        loadFurnitureListBasedOnDeliver} from '../../redux/action/furniture';
+import {loadFurnitureListBasedAllFilter} from '../../redux/action/furniture';
 
 const FurnitureBar = (props) => {
 
@@ -39,33 +37,27 @@ const FurnitureBar = (props) => {
         EVENT HANDLER FOR INPUT IN THIS COMPONENT
     */
     const searchFurnitureBasedKeyword = (event) => {
-        setFurnitureStyleSelected([]);
-        setFurnitureDeliverSelected([]);
         setSearchFurnitureKeyword(event.target.value);
-        props.loadFurnitureListBasedOnKeyword(event.target.value);
+        props.loadFurnitureListBasedAllFilter(event.target.value,furnitureStyleSelected,furnitureDeliverSelected);
     }
 
     const checkFurnitureStyleOption = (event, item) => {
-        setSearchFurnitureKeyword('');
-        setFurnitureDeliverSelected([]);
         if (event.target.checked) {
             setFurnitureStyleSelected([...furnitureStyleSelected, item]);
-            props.loadFurnitureListBasedOnType([...furnitureStyleSelected, item]);
+            props.loadFurnitureListBasedAllFilter(searchFurnitureKeyword, [...furnitureStyleSelected, item], furnitureDeliverSelected);
         } else {
             setFurnitureStyleSelected(furnitureStyleSelected.filter(thisItem => thisItem != item));
-            props.loadFurnitureListBasedOnType(furnitureStyleSelected.filter(thisItem => thisItem != item));
+            props.loadFurnitureListBasedAllFilter(searchFurnitureKeyword, furnitureStyleSelected.filter(thisItem => thisItem != item), furnitureDeliverSelected);
         }
     }
 
     const checkFurnitureDeliverOption = (event, deliverTime) => {
-        setSearchFurnitureKeyword('');
-        setFurnitureStyleSelected([]);
         if (event.target.checked) {
             setFurnitureDeliverSelected([...furnitureDeliverSelected, deliverTime]);
-            props.loadFurnitureListBasedOnDeliver([...furnitureDeliverSelected, deliverTime]);
+            props.loadFurnitureListBasedAllFilter(searchFurnitureKeyword, furnitureStyleSelected, [...furnitureDeliverSelected, deliverTime]);
         } else {
             setFurnitureDeliverSelected(furnitureDeliverSelected.filter(thisItem => thisItem != deliverTime));
-            props.loadFurnitureListBasedOnDeliver(furnitureDeliverSelected.filter(thisItem => thisItem != deliverTime));
+            props.loadFurnitureListBasedAllFilter(searchFurnitureKeyword, furnitureStyleSelected, furnitureDeliverSelected.filter(thisItem => thisItem != deliverTime));
         }
     }
 
@@ -98,7 +90,7 @@ const FurnitureBar = (props) => {
                                                             {item}
                                                         </div>
                                                         <div className="col-6 text-right">
-                                                            <input type="checkbox" checked={furnitureStyleSelected.includes(item)} onChange={(e)=>checkFurnitureStyleOption(e,item)} />
+                                                            <input className="checkbox-option" type="checkbox" checked={furnitureStyleSelected.includes(item)} onChange={(e)=>checkFurnitureStyleOption(e,item)} />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -119,7 +111,7 @@ const FurnitureBar = (props) => {
                                                     1 week
                                                 </div>
                                                 <div className="col-6 text-right">
-                                                    <input type="checkbox" checked={furnitureDeliverSelected.includes(7)} onChange={(e)=>checkFurnitureDeliverOption(e,7)} />
+                                                    <input type="checkbox" className="checkbox-option" checked={furnitureDeliverSelected.includes(7)} onChange={(e)=>checkFurnitureDeliverOption(e,7)} />
                                                 </div>
                                             </div>
                                         </div>
@@ -129,7 +121,7 @@ const FurnitureBar = (props) => {
                                                     2 weeks
                                                 </div>
                                                 <div className="col-6 text-right">
-                                                    <input type="checkbox" checked={furnitureDeliverSelected.includes(14)} onChange={(e)=>checkFurnitureDeliverOption(e,14)} />
+                                                    <input type="checkbox" className="checkbox-option" checked={furnitureDeliverSelected.includes(14)} onChange={(e)=>checkFurnitureDeliverOption(e,14)} />
                                                 </div>
                                             </div>
                                         </div>
@@ -139,7 +131,7 @@ const FurnitureBar = (props) => {
                                                     1 month
                                                 </div>
                                                 <div className="col-6 text-right">
-                                                    <input type="checkbox" checked={furnitureDeliverSelected.includes(28)} onChange={(e)=>checkFurnitureDeliverOption(e,28)} />
+                                                    <input type="checkbox" className="checkbox-option" checked={furnitureDeliverSelected.includes(28)} onChange={(e)=>checkFurnitureDeliverOption(e,28)} />
                                                 </div>
                                             </div>
                                         </div>
@@ -149,7 +141,7 @@ const FurnitureBar = (props) => {
                                                     More
                                                 </div>
                                                 <div className="col-6 text-right">
-                                                    <input type="checkbox" checked={furnitureDeliverSelected.includes(56)} onChange={(e)=>checkFurnitureDeliverOption(e,56)} />
+                                                    <input type="checkbox" className="checkbox-option" checked={furnitureDeliverSelected.includes(56)} onChange={(e)=>checkFurnitureDeliverOption(e,56)} />
                                                 </div>
                                             </div>
                                         </div>
@@ -165,9 +157,7 @@ const FurnitureBar = (props) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    loadFurnitureListBasedOnKeyword : (keyword) => (dispatch(loadFurnitureListBasedOnKeyword(keyword))),
-    loadFurnitureListBasedOnType : (listOptions) => (dispatch(loadFurnitureListBasedOnType(listOptions))),
-    loadFurnitureListBasedOnDeliver : (deliverOptions) => (dispatch(loadFurnitureListBasedOnDeliver(deliverOptions)))
+    loadFurnitureListBasedAllFilter : (keyword,typeOptions,deliverOptions) => (dispatch(loadFurnitureListBasedAllFilter(keyword,typeOptions,deliverOptions)))
 })
 
 export default connect(

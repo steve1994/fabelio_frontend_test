@@ -31,6 +31,7 @@
     width: 100%;
     text-align: left;
     background-color: white;
+    padding: 7px;
 }
 
 .furniture-deliver-dropdown {
@@ -45,4 +46,14 @@
     width: 100%;
     text-align: left;
     background-color: white;
+    padding: 7px;
+}
+
+.checkbox-option {
+    width: 20px;
+}
+
+.checkbox-option:checked {
+    background-color: green;
+    color: white;
 }

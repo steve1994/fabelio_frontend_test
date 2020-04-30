@@ -1,0 +1,23 @@
+.furniture-card {
+    box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.furniture-card h5 {
+    font-weight : bold;
+}
+
+.furniture-card .furniture-price {
+    font-weight : bold;
+    color : orange;
+}
+
+.furniture-card .furniture-style {
+    color : blue;
+}
+
+.furniture-card .furniture-delivery {
+    color : blue;
+    font-weight: bold;
+    text-decoration: underline;
+}

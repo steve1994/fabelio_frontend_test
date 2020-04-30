@@ -1,0 +1,48 @@
+.search-bar ::placeholder {
+    font-size : 20px;
+    color : white;
+    font-weight: bold;
+}
+
+.search-bar input {
+    color : white;
+    width : 100%;
+    background-color: transparent;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-color: white;
+}
+
+.search-bar input:focus {
+    outline: none;
+}
+
+.furniture-style-dropdown {
+    width: 100%;
+}
+
+.furniture-style-dropdown .dropdown-menu {
+    width: 100%;
+}
+
+.furniture-style-dropdown .dropdown-toggle {
+    width: 100%;
+    text-align: left;
+    background-color: white;
+}
+
+.furniture-deliver-dropdown {
+    width: 100%;
+}
+
+.furniture-deliver-dropdown .dropdown-menu {
+    width: 100%;
+}
+
+.furniture-deliver-dropdown .dropdown-toggle {
+    width: 100%;
+    text-align: left;
+    background-color: white;
+}

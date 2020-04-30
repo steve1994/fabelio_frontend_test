@@ -76,10 +76,8 @@ const FurnitureBar = (props) => {
                     <div className="col-12">
                         <div className="row">
                             <div className="col-6">
-                                <div className="col-md-12">
-                                    <div className="search-bar">
-                                        <input type='text' placeholder="Search Furniture" value={searchFurnitureKeyword} onChange={(e)=>searchFurnitureBasedKeyword(e)} />
-                                    </div>
+                                <div className="search-bar">
+                                    <input type='text' placeholder="Search Furniture" value={searchFurnitureKeyword} onChange={(e)=>searchFurnitureBasedKeyword(e)} />
                                 </div>
                             </div>
                         </div>
@@ -87,75 +85,71 @@ const FurnitureBar = (props) => {
                     <div className="col-12">
                         <div className="row">
                             <div className="col-6">
-                                <div className="col-md-12">
-                                    <div className="btn-group furniture-style-dropdown">
-                                        <button className="dropdown-toggle" type="button" onClick={(e)=>clickDropdownFurnitureStyle(e)} id="dropdownFurnitureStyle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Furniture Style
-                                        </button>
-                                        <div className="dropdown-menu" aria-labelledby="dropdownFurnitureStyle">
-                                            {
-                                                props.type.map(item => (
-                                                    <div className="dropdown-item">
-                                                        <div className="row">
-                                                            <div className="col-6 text-left">
-                                                                {item}
-                                                            </div>
-                                                            <div className="col-6 text-right">
-                                                                <input type="checkbox" checked={furnitureStyleSelected.includes(item)} onChange={(e)=>checkFurnitureStyleOption(e,item)} />
-                                                            </div>
+                                <div className="btn-group furniture-style-dropdown">
+                                    <button className="dropdown-toggle" type="button" onClick={(e)=>clickDropdownFurnitureStyle(e)} id="dropdownFurnitureStyle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Furniture Style
+                                    </button>
+                                    <div className="dropdown-menu" aria-labelledby="dropdownFurnitureStyle">
+                                        {
+                                            props.type.map(item => (
+                                                <div className="dropdown-item">
+                                                    <div className="row">
+                                                        <div className="col-6 text-left">
+                                                            {item}
+                                                        </div>
+                                                        <div className="col-6 text-right">
+                                                            <input type="checkbox" checked={furnitureStyleSelected.includes(item)} onChange={(e)=>checkFurnitureStyleOption(e,item)} />
                                                         </div>
                                                     </div>
-                                                ))
-                                            }
-                                        </div>
+                                                </div>
+                                            ))
+                                        }
                                     </div>
                                 </div>
                             </div>
                             <div className="col-6">
-                                <div className="col-md-12">
-                                    <div className="btn-group furniture-deliver-dropdown">
-                                        <button className="dropdown-toggle" type="button" onClick={(e)=>clickDropdownFurnitureDeliver(e)} id="dropdownFurnitureDeliver" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Delivery Time
-                                        </button>
-                                        <div className="dropdown-menu" aria-labelledby="dropdownFurnitureDeliver">
-                                            <div className="dropdown-item">
-                                                <div className="row">
-                                                    <div className="col-6 text-left">
-                                                        1 week
-                                                    </div>
-                                                    <div className="col-6 text-right">
-                                                        <input type="checkbox" checked={furnitureDeliverSelected.includes(7)} onChange={(e)=>checkFurnitureDeliverOption(e,7)} />
-                                                    </div>
+                                <div className="btn-group furniture-deliver-dropdown">
+                                    <button className="dropdown-toggle" type="button" onClick={(e)=>clickDropdownFurnitureDeliver(e)} id="dropdownFurnitureDeliver" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Delivery Time
+                                    </button>
+                                    <div className="dropdown-menu" aria-labelledby="dropdownFurnitureDeliver">
+                                        <div className="dropdown-item">
+                                            <div className="row">
+                                                <div className="col-6 text-left">
+                                                    1 week
+                                                </div>
+                                                <div className="col-6 text-right">
+                                                    <input type="checkbox" checked={furnitureDeliverSelected.includes(7)} onChange={(e)=>checkFurnitureDeliverOption(e,7)} />
                                                 </div>
                                             </div>
-                                            <div className="dropdown-item">
-                                                <div className="row">
-                                                    <div className="col-6 text-left">
-                                                        2 weeks
-                                                    </div>
-                                                    <div className="col-6 text-right">
-                                                        <input type="checkbox" checked={furnitureDeliverSelected.includes(14)} onChange={(e)=>checkFurnitureDeliverOption(e,14)} />
-                                                    </div>
+                                        </div>
+                                        <div className="dropdown-item">
+                                            <div className="row">
+                                                <div className="col-6 text-left">
+                                                    2 weeks
+                                                </div>
+                                                <div className="col-6 text-right">
+                                                    <input type="checkbox" checked={furnitureDeliverSelected.includes(14)} onChange={(e)=>checkFurnitureDeliverOption(e,14)} />
                                                 </div>
                                             </div>
-                                            <div className="dropdown-item">
-                                                <div className="row">
-                                                    <div className="col-6 text-left">
-                                                        1 month
-                                                    </div>
-                                                    <div className="col-6 text-right">
-                                                        <input type="checkbox" checked={furnitureDeliverSelected.includes(28)} onChange={(e)=>checkFurnitureDeliverOption(e,28)} />
-                                                    </div>
+                                        </div>
+                                        <div className="dropdown-item">
+                                            <div className="row">
+                                                <div className="col-6 text-left">
+                                                    1 month
+                                                </div>
+                                                <div className="col-6 text-right">
+                                                    <input type="checkbox" checked={furnitureDeliverSelected.includes(28)} onChange={(e)=>checkFurnitureDeliverOption(e,28)} />
                                                 </div>
                                             </div>
-                                            <div className="dropdown-item">
-                                                <div className="row">
-                                                    <div className="col-6 text-left">
-                                                        More
-                                                    </div>
-                                                    <div className="col-6 text-right">
-                                                        <input type="checkbox" checked={furnitureDeliverSelected.includes(56)} onChange={(e)=>checkFurnitureDeliverOption(e,56)} />
-                                                    </div>
+                                        </div>
+                                        <div className="dropdown-item">
+                                            <div className="row">
+                                                <div className="col-6 text-left">
+                                                    More
+                                                </div>
+                                                <div className="col-6 text-right">
+                                                    <input type="checkbox" checked={furnitureDeliverSelected.includes(56)} onChange={(e)=>checkFurnitureDeliverOption(e,56)} />
                                                 </div>
                                             </div>
                                         </div>

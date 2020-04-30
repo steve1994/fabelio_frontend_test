@@ -49,11 +49,6 @@
     padding: 7px;
 }
 
-.checkbox-option {
-    width: 20px;
-}
-
-.checkbox-option:checked {
-    background-color: green;
-    color: white;
+input[type=checkbox]:checked ~ .custom-control-label::before {
+    background-color: green !important;
 }

@@ -90,7 +90,10 @@ const FurnitureBar = (props) => {
                                                             {item}
                                                         </div>
                                                         <div className="col-6 text-right">
-                                                            <input className="checkbox-option" type="checkbox" checked={furnitureStyleSelected.includes(item)} onChange={(e)=>checkFurnitureStyleOption(e,item)} />
+                                                            <div className="custom control custom-checkbox">
+                                                                <input className="custom-control-input" type="checkbox" id={item} checked={furnitureStyleSelected.includes(item)} onChange={(e)=>checkFurnitureStyleOption(e,item)} />
+                                                                <label className="custom-control-label" for={item}></label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -111,7 +114,10 @@ const FurnitureBar = (props) => {
                                                     1 week
                                                 </div>
                                                 <div className="col-6 text-right">
-                                                    <input type="checkbox" className="checkbox-option" checked={furnitureDeliverSelected.includes(7)} onChange={(e)=>checkFurnitureDeliverOption(e,7)} />
+                                                    <div className="custom control custom-checkbox">
+                                                        <input className="custom-control-input" id="delivery-7" type="checkbox" checked={furnitureDeliverSelected.includes(7)} onChange={(e)=>checkFurnitureDeliverOption(e,7)} />
+                                                        <label className="custom-control-label" for="delivery-7"></label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,7 +127,10 @@ const FurnitureBar = (props) => {
                                                     2 weeks
                                                 </div>
                                                 <div className="col-6 text-right">
-                                                    <input type="checkbox" className="checkbox-option" checked={furnitureDeliverSelected.includes(14)} onChange={(e)=>checkFurnitureDeliverOption(e,14)} />
+                                                    <div className="custom control custom-checkbox">
+                                                        <input className="custom-control-input" id="delivery-14" type="checkbox" checked={furnitureDeliverSelected.includes(14)} onChange={(e)=>checkFurnitureDeliverOption(e,14)} />
+                                                        <label className="custom-control-label" for="delivery-14"></label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -131,7 +140,10 @@ const FurnitureBar = (props) => {
                                                     1 month
                                                 </div>
                                                 <div className="col-6 text-right">
-                                                    <input type="checkbox" className="checkbox-option" checked={furnitureDeliverSelected.includes(28)} onChange={(e)=>checkFurnitureDeliverOption(e,28)} />
+                                                    <div className="custom control custom-checkbox">
+                                                        <input className="custom-control-input" id="delivery-28" type="checkbox" checked={furnitureDeliverSelected.includes(28)} onChange={(e)=>checkFurnitureDeliverOption(e,28)} />
+                                                        <label className="custom-control-label" for="delivery-28"></label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -141,7 +153,10 @@ const FurnitureBar = (props) => {
                                                     More
                                                 </div>
                                                 <div className="col-6 text-right">
-                                                    <input type="checkbox" className="checkbox-option" checked={furnitureDeliverSelected.includes(56)} onChange={(e)=>checkFurnitureDeliverOption(e,56)} />
+                                                    <div className="custom control custom-checkbox">
+                                                        <input className="custom-control-input" id="delivery-56" type="checkbox" checked={furnitureDeliverSelected.includes(56)} onChange={(e)=>checkFurnitureDeliverOption(e,56)} />
+                                                        <label className="custom-control-label" for="delivery-56"></label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

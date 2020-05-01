@@ -11,24 +11,6 @@ export const setFurnitureListTypeState = (furnitureListType) => ({
     furnitureListType
 })
 
-export const setFurnitureListBasedOnKeyword = (keyword, furnitureList) => ({
-    type : type.SET_LIST_FURNITURE_BASED_KEYWORD,
-    keyword,
-    furnitureList
-})
-
-export const setFurnitureListBasedOnType = (furnitureStyleOption,furnitureList) => ({
-    type : type.SET_LIST_FURNITURE_BASED_TYPE,
-    furnitureStyleOption,
-    furnitureList
-})
-
-export const setFurnitureListBasedOnDeliver = (deliverTimeOption,furnitureList) => ({
-    type : type.SET_LIST_FURNITURE_BASED_DELIVER,
-    deliverTimeOption,
-    furnitureList
-})
-
 export const setFurnitureListBasedOnAllFilter = (keyword,furnitureStyleOption,deliverTimeOption,furnitureList) => ({
     type : type.SET_LIST_FURNITURE_BASED_ALL_FILTER,
     keyword,
@@ -47,50 +29,6 @@ export const loadFurnitureList = () => {
         .catch(error => {
             console.log(error);
         });
-    }
-}
-
-export const loadFurnitureListBasedOnKeyword = (keyword) => {
-    return dispatch => {
-        return fetchDataFurniture()
-        .then(response => {
-            dispatch(setFurnitureListBasedOnKeyword(keyword,response.products));
-        })
-        .catch(error => {
-            console.log(error);
-        })
-    }
-}
-
-export const loadFurnitureListBasedOnType = (furnitureStyleOption) => {
-    return dispatch => {
-        if (furnitureStyleOption.length == 0) {
-            return dispatch(loadFurnitureList());
-        } else {
-            return fetchDataFurniture()
-            .then(response => {
-                dispatch(setFurnitureListBasedOnType(furnitureStyleOption,response.products));
-            })
-            .catch(error => {
-                console.log(error);
-            })
-        }
-    }
-}
-
-export const loadFurnitureListBasedOnDeliver = (deliverTimeOption) => {
-    return dispatch => {
-        if (deliverTimeOption.length == 0) {
-            return dispatch(loadFurnitureList());
-        } else {
-            return fetchDataFurniture()
-            .then(response => {
-                dispatch(setFurnitureListBasedOnDeliver(deliverTimeOption,response.products));
-            })
-            .catch(error => {
-                console.log(error);
-            })
-        }
     }
 }
 

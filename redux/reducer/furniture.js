@@ -3,10 +3,8 @@ import * as type from '../constant/type';
 const furniture = (state = [], action) => {
     switch (action.type) {
         case type.SET_LIST_FURNITURE:
-            return action.furnitureList;        
+            return action.furnitureList;
         case type.SET_LIST_FURNITURE_BASED_ALL_FILTER:
-            let maximumDeliverOption = Math.max(...action.deliverTimeOption);
-            let maximumDeliverOption2 = Math.max(...action.deliverTimeOption.filter(item => item != 56));
             return action.furnitureList.filter(item => {
                 let booleanKeyword = item.name.toLowerCase().includes(action.keyword.toLowerCase());
                 if (booleanKeyword) {
@@ -21,14 +19,29 @@ const furniture = (state = [], action) => {
                     }
                     if (isStyleMatch) {
                         let isDeliverMatch = false;
-                        if (maximumDeliverOption == 56) {
-                            if (parseInt(item.delivery_time) > 28) {
-                                isDeliverMatch = true;
-                            } else {
-                                isDeliverMatch = parseInt(item.delivery_time) <= maximumDeliverOption2;
+                        for (let i=0;i<action.deliverTimeOption.length;i++) {
+                            switch (action.deliverTimeOption[i]) {
+                                case 7:
+                                    if (parseInt(item.delivery_time) <= 7) {
+                                        isDeliverMatch = true;
+                                    }
+                                    break;
+                                case 14:
+                                    if (parseInt(item.delivery_time) > 7 && parseInt(item.delivery_time) <= 14) {
+                                        isDeliverMatch = true;
+                                    }
+                                    break;
+                                case 28:
+                                    if (parseInt(item.delivery_time) > 15 && parseInt(item.delivery_time) <= 28) {
+                                        isDeliverMatch = true;
+                                    }
+                                    break;
+                                default:
+                                    if (parseInt(item.delivery_time) > 28) {
+                                        isDeliverMatch = true;
+                                    }
+                                    break;
                             }
-                        } else {
-                            isDeliverMatch = parseInt(item.delivery_time) <= maximumDeliverOption;
                         }
                         if (action.deliverTimeOption.length == 0) {
                             isDeliverMatch = true;

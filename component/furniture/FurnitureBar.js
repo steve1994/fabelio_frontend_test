@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {connect} from 'react-redux';
-import '../../pages/css/header.css';
+import '~/public/css/header.css';
 import $ from 'jquery';
 import {loadFurnitureListBasedAllFilter} from '../../redux/action/furniture';
 
@@ -62,12 +62,12 @@ const FurnitureBar = (props) => {
     }
 
     return (
-        <div className="row" style={{backgroundColor:'blue',height:'150px'}}>
+        <div className="row" style={{backgroundColor:'blue',minHeight:'150px'}}>
             <div className="container">
-                <div className="row h-100 pt-4">
-                    <div className="col-12">
+                <div className="row h-100 pt-4 mx-1">
+                    <div className="col-12 mb-3">
                         <div className="row">
-                            <div className="col-6">
+                            <div className="col-sm-12 col-md-6">
                                 <div className="search-bar">
                                     <input type='text' placeholder="Search Furniture" value={searchFurnitureKeyword} onChange={(e)=>searchFurnitureBasedKeyword(e)} />
                                 </div>
@@ -76,7 +76,7 @@ const FurnitureBar = (props) => {
                     </div>
                     <div className="col-12">
                         <div className="row">
-                            <div className="col-6">
+                            <div className="col-sm-12 col-md-6 mb-3">
                                 <div className="btn-group furniture-style-dropdown">
                                     <button className="dropdown-toggle" type="button" onClick={(e)=>clickDropdownFurnitureStyle(e)} id="dropdownFurnitureStyle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Furniture Style
@@ -102,7 +102,7 @@ const FurnitureBar = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-6">
+                            <div className="col-sm-12 col-md-6 mb-3">
                                 <div className="btn-group furniture-deliver-dropdown">
                                     <button className="dropdown-toggle" type="button" onClick={(e)=>clickDropdownFurnitureDeliver(e)} id="dropdownFurnitureDeliver" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Delivery Time

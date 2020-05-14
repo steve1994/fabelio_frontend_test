@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {loadFurnitureList} from '../redux/action/furniture';
 import FurnitureBar from '../component/furniture/FurnitureBar';
 import {formatPriceNumber} from '../utils/helper';
-import './css/index.css';
+import '~/public/css/index.css';
 
 const Home = (props) => {
 
@@ -18,7 +18,7 @@ const Home = (props) => {
                 <div className="row">
                     {
                         props.furnitureList.map(item => (
-                            <div className="col-6 mb-4">
+                            <div className="col-sm-12 col-md-6 mb-4">
                                 <div className="col-md-12 furniture-card p-4">
                                     <div className="row h-100">
                                         <div className="col-12 mb-3">
